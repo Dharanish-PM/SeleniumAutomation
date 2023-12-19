@@ -69,16 +69,17 @@ public class BookBus {
         List<WebElement> seats=driver.findElements(By.xpath("//button[@class='seat sleeper']//*[name()='svg']//*[name()='rect'][1]"));
 
         //Printing Details
-        System.out.println(HomePage.Day+" "+HomePage.MontYear);
-        System.out.println(BookBus.busName);
-        System.out.println(BookBus.busTime);
+        System.out.println("Date of Travel : "+HomePage.Day+" "+HomePage.MontYear);
+        System.out.println("Operator Name : "+BookBus.busName);
+        System.out.println("Departure Time : "+BookBus.busTime);
 
+        System.out.println("Available Seats");
         System.out.println("Upper Deck");
         for(int i=0;i<5;i++){
             WebElement seat1=seats.get(i);
             WebElement seat2=seats.get(i+5);
             if(seat1.getAttribute("fill").equals("white")&& seat2.getAttribute("fill").equals("white")){
-                System.out.println(allSeats.get(i).getText());
+                System.out.println(allSeats.get(i).getText()+" or "+allSeats.get(i+5).getText());
             }
         }
         System.out.println("Lower Deck");
@@ -86,11 +87,11 @@ public class BookBus {
             WebElement seat1=seats.get(i);
             WebElement seat2=seats.get(i+5);
             if(seat1.getAttribute("fill").equals("white")&& seat2.getAttribute("fill").equals("white")){
-                System.out.println(allSeats.get(i).getText());
+                System.out.println(allSeats.get(i).getText()+" or "+allSeats.get(i+5).getText());
             }
         }
         String cost=driver.findElement(By.xpath("//strong[@class='h5 fare']")).getText();
-        System.out.println("Cost: "+cost);
+        System.out.println("Cost Starting At : "+cost);
     }
 
 
